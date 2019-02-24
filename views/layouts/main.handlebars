@@ -11,24 +11,31 @@
 </head>
 <body>
 
-    <div class="jumbotron text-center">
-      <h1>Eat Dat Burger</h1>
-    </div><!-- end jumbotron -->
-      <div class="container">
-        <form>
-          <div class="form-group">
-            <label for="burger-type">Taste?</label>
-            <input type="text" class="form-control" id="burger-type" placeholder="What your flavor?">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      {{{body}}}
-  </div>
-  <footer class="footer row mt-5 justify-content-center">
+  <div class="jumbotron text-center">
+    <h1>Eat Dat Burger</h1>
+  </div><!-- end jumbotron -->
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="burger-type">Taste?</label>
+        <input type="text" class="form-control" id="burger-type" placeholder="What your flavor?">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {{{body}}}
+    <div class="row justify-content-center">
+      <div class="col-6 text-center">
+        <button id="resetButton" type="button">Reset Da Ate</button>
+      </div>
+    </div>
+
+
+    <footer class="footer row mt-5 justify-content-center">
       <div class="col">
         <h2>Is it Ate?</h2>
       </div>
     </footer>
+  </div>
 
   
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

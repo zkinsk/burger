@@ -8,12 +8,18 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.all(function(data) {
     console.log(data);
-    res.render("index", {title:"Eat Dat Burger", burgers: data});
+    let burgersToEat = [];
+    let burgersAte = [];
+    data.forEach(function(burger){
+      if (burger.devoured){burgersAte.push(burger)}else{burgersToEat.push(burger)};
+    })
+    // console.log(data);
+    res.render("index", {title:"Eat Dat Burger", burgersToEat: burgersToEat, burgersAte: burgersAte});
   });
 });
 
 router.post("/api/burger", function(req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   burger.create([
     "burger_name"
   ], [
@@ -24,14 +30,13 @@ router.post("/api/burger", function(req, res) {
   });
 });
 
-router.put("/api/cats/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.patch("/api/burger", function(req, res) {
+  // console.log(req.body);
+  let condition = "id = " + req.body.ateID;
+  let cols = "devoured";
+  let vals = true;
 
-  console.log("condition", condition);
-
-  cat.update({
-    sleepy: req.body.sleepy
-  }, condition, function(result) {
+  burger.update(cols, vals, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
@@ -41,16 +46,9 @@ router.put("/api/cats/:id", function(req, res) {
   });
 });
 
-router.delete("/api/cats/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  cat.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
+router.delete("/api/burger/", function(req, res) {
+  burger.reset(function(result) {
       res.status(200).end();
-    }
   });
 });
 

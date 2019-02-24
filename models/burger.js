@@ -13,13 +13,20 @@ const burger = {
       callback(res);
     });
   },
-  update: function(objColVals, condition, callback) {
-    orm.update("burgers", objColVals, condition, function(res) {
+  update: function(cols, vals, condition, callback) {
+    orm.update("burgers", cols, vals, condition, function(res) {
       callback(res);
     });
   },
-  delete: function(condition, callback) {
-    orm.delete("cats", condition, function(res) {
+  reset: function(callback) {
+    let condition1 = "id <= 4 "
+    let vals = false;
+    let cols = "devoured"
+    orm.update("burgers", cols, vals, condition1, function(res1){
+      console.log(res1);
+    })
+    let condition2 = "id > 4";
+    orm.delete("burgers", condition2, function(res) {
       callback(res);
     });
   }

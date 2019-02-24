@@ -1,6 +1,14 @@
 <h3>Burger Placeholder</h3>
-
-{{#each burgers}}
-<p>{{this.id}}. {{this.burger_name}}, {{this.devoured}}</p>
-<br>
-{{/each}}
+<div class="row">
+  <div class="col-6">
+  {{#each burgersToEat}}
+    <p>{{this.burger_name}} <button class="devourButton" type="button" data-id="{{this.id}}">Devour It</button></p>
+  {{/each}}
+  </div>
+  <div class="col-6">
+    <p>These Burgers Have been Ate!</p>
+    {{#each burgersAte}}
+      <p>{{this.burger_name}}</p> 
+    {{/each}}
+  </div>
+</div>
