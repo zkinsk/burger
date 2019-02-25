@@ -5,36 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Bonbon|Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
   
 </head>
 <body>
-
-  <div class="jumbotron text-center">
-    <h1>Eat Dat Burger</h1>
-  </div><!-- end jumbotron -->
-  <div class="container">
-    <form>
-      <div class="form-group">
-        <label for="burger-type">Taste?</label>
-        <input type="text" class="form-control" id="burger-type" placeholder="What your flavor?">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    {{{body}}}
-    <div class="row justify-content-center">
-      <div class="col-6 text-center">
-        <button id="resetButton" type="button">Reset Da Ate</button>
+  <div class="modal" id="noBurger" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <h5 class="modal-title">Modal title</h5>
+        <div class="modal-body">
+          <img src="https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg"
+            alt="building a burger">
+          </img>
+        </div>
       </div>
     </div>
+  </div>
+    <!--end modal-->
+  <div class="jumbotron text-center mb-0">
+    <h1>Eat Dat Burger</h1>
+  </div><!-- end jumbotron -->
+  <div id="appArea">
+    <div class="container p-3">
+      {{{body}}}
 
 
-    <footer class="footer row mt-5 justify-content-center">
-      <div class="col">
-        <h2>Is it Ate?</h2>
-      </div>
-    </footer>
+
+      {{!-- <footer class="footer row mt-5 justify-content-center">
+        <div class="col text-center">
+          <h2>Is it Ate?</h2>
+        </div>
+      </footer> --}}
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-6 text-center">
+      <button id="resetButton" class="btn btn-danger" type="button">Reset Da Ate</button>
+    </div>
   </div>
 
   

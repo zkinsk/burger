@@ -11,10 +11,15 @@ router.get("/", function(req, res) {
     let burgersToEat = [];
     let burgersAte = [];
     data.forEach(function(burger){
-      if (burger.devoured){burgersAte.push(burger)}else{burgersToEat.push(burger)};
+      if (burger.devoured){
+        burgersAte.push(burger)
+      }else{burgersToEat.push(burger)};
     })
     // console.log(data);
+    burgersToEat.reverse();
     res.render("index", {title:"Eat Dat Burger", burgersToEat: burgersToEat, burgersAte: burgersAte});
+    // res.render("index", {title:"Eat Dat Burger", burgers: data}); I tried to send just the data and let handlebars sort it with if & unless, 
+    // but I couldn't get the else statements I have in there to work correctly with the if and unless statements
   });
 });
 

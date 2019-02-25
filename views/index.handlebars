@@ -1,14 +1,44 @@
-<h3>Burger Placeholder</h3>
-<div class="row">
-  <div class="col-6">
-  {{#each burgersToEat}}
-    <p>{{this.burger_name}} <button class="devourButton" type="button" data-id="{{this.id}}">Devour It</button></p>
-  {{/each}}
-  </div>
-  <div class="col-6">
-    <p>These Burgers Have been Ate!</p>
-    {{#each burgersAte}}
-      <p>{{this.burger_name}}</p> 
+<div class="row" id="burgerBox">
+  <div class="col-12 col-md-4 order-md-first text-center mt-3">
+    <h5>THESE BURGERS NEED TO BE ATE!</h5>
+    <div class="eatBoxes">
+    {{#each burgersToEat}}
+    {{!-- {{#unless this.devoured}} --}}
+        <div class="row">
+          <div class="col-8">
+            <p>{{this.burger_name}}</p>
+          </div>
+          <div class="col-4">
+            <button class="devourButton btn btn-success" type="button" data-id="{{this.id}}" data-toggle="tooltip" title="Devour It!"><i class="fas fa-teeth-open"></i></button>
+          </div>
+        </div>
+    {{!-- {{/unless}} --}}
+      {{else}}
+        <p>All Burgers have been Ate!</p>
     {{/each}}
+    </div>
+  </div>
+  <div class="col-12 col-md-4 order-first mt-3">
+    <form class="text-center">
+      <div class="form-group text-center">
+        <label for="burger-type"><h5>ADD A BURGER!</h5></label>
+        <input type="text" class="form-control" id="burger-type" placeholder="What's your flavor?">
+      </div>
+      <button type="submit" class="btn btn-warning">Submit &nbsp &nbsp<i class="fas fa-hamburger"></i></button>
+    </form>
+  </div>
+  <div class="col-12 col-md-4 text-center mt-3">
+    <h5>THESE BURGERS HAVE BEEN ATE!</h5>
+    <div class="eatBoxes">
+
+    {{#each burgersAte}}
+      {{!-- {{#if this.devoured}} --}}
+      <p>{{this.burger_name}}</p>
+      {{!-- {{/if}} --}}
+      {{else}}
+        <p>Hey, no Burgers have been ate...</p>
+    {{/each}}
+    </div>
   </div>
 </div>
+
