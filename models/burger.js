@@ -7,17 +7,19 @@ const burger = {
       callback(res);
     });
   },
-  // The variables cols and vals are arrays.
+
   create: function(cols, vals, callback) {
     orm.create("burgers", cols, vals, function(res) {
       callback(res);
     });
   },
+
   update: function(cols, vals, condition, callback) {
     orm.update("burgers", cols, vals, condition, function(res) {
       callback(res);
     });
   },
+
   reset: function(callback) {
     let condition1 = "id <= 4 "
     let vals = false;

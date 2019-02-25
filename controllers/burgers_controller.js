@@ -4,7 +4,7 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var burger = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+// Get all burgers from database for display
 router.get("/", function(req, res) {
   burger.all(function(data) {
     console.log(data);
@@ -23,6 +23,7 @@ router.get("/", function(req, res) {
   });
 });
 
+// post a new burger to the database
 router.post("/api/burger", function(req, res) {
   // console.log(req.body);
   burger.create([
@@ -35,12 +36,12 @@ router.post("/api/burger", function(req, res) {
   });
 });
 
+// patch route to update burger devoured boolean
 router.patch("/api/burger", function(req, res) {
   // console.log(req.body);
   let condition = "id = " + req.body.ateID;
   let cols = "devoured";
   let vals = true;
-
   burger.update(cols, vals, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
@@ -51,6 +52,7 @@ router.patch("/api/burger", function(req, res) {
   });
 });
 
+// reset the burger list & database back to the original 4 burgers that were entered
 router.delete("/api/burger/", function(req, res) {
   burger.reset(function(result) {
       res.status(200).end();
