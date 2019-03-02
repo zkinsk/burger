@@ -19,7 +19,7 @@ On the front end we are have several technologies:
   
 4. Handlebars Templating
     - This is both a front end and a back technology.
-    - Is barely needed on this app as it is a single page, but used here or exposure to the technology
+    - Is barely needed on this app, but used here for exposure to the technology
   
 Out back we are running additional services: 
 
