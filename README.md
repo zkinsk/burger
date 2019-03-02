@@ -32,7 +32,7 @@ Out back we are running additional services:
     - We can update and destroy the data in our database
     
 3. Custom ORM - Object Relational Mapping 
-    - I have build a custom ORM which allows me to make multiple types of database queries using generic queries that can handle various parameters. This simplifies the code and keeps me from having to write multiple specific queries.
+    - I have build a custom ORM which allows me to make multiple types of database queries using generic queries that can handle various parameters. This simplifies the code and keeps me from having to write multiple specific database queries.
     
     
     
