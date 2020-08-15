@@ -3,7 +3,7 @@
   {{!-- burgers to be eaten html --}}
   <div class="col-12 col-md-4 order-md-first text-center mt-3">
     <h5>THESE BURGERS NEED TO BE ATE!</h5>
-    <div class="eatBoxes container-fluid">
+    <div class="eatBoxes container-fluid scroll-bar">
     {{#each burgersToEat}}
     {{!-- {{#unless this.devoured}} --}}
         <div class="row">
@@ -37,7 +37,7 @@
   {{!-- html for burgers that have been ate --}}
   <div class="col-12 col-md-4 text-center mt-3">
     <h5>THESE BURGERS HAVE BEEN ATE!</h5>
-    <div class="eatBoxes">
+    <div class="eatBoxes scroll-bar ">
     {{#each burgersAte}}
       {{!-- {{#if this.devoured}} --}}
       <p>{{this.burger_name}}</p>
